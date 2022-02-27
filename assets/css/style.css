@@ -129,13 +129,23 @@ header h1{
     font-weight: bold;
 }
 .reset{
-    margin: 3vh 45vh;
-    padding: 10px 20px;
+    /* margin: 3vh 45vh; */
+    padding: 10px 25px;
     border: 2px dashed;
     font-size: 1.3em;
     background-color: darkolivegreen;
     color: lightgreen;
     cursor: pointer;
+}
+.container{
+    position: relative;
+    height: 200px;
+}
+.center{
+    position: absolute;
+    margin: 0;
+    top: 10%;
+    left: 45%;
 }
 img{
     width: 100px;
