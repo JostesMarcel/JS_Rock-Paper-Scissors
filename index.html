@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <main>
+        <div class="round-choise">
+            <p id="headQuest">How many Rounds?</p>
+            <div id="winOrLose"></div>
+            <div id="removeRound" class="show-rounds">
+            <button type="button" class="button" onclick="choseRound(this.value)" value="3">3</button>
+            <button type="button" class="button" onclick="choseRound(this.value)" value="5">5</button>
+            <button type="button" class="button" onclick="choseRound(this.value)" value="9">9</button>
+            <button type="button" class="button" onclick="choseRound(this.value)" value="12">12</button>
+            </div>
+        </div>
+
+    <div class="score-board">
+        <div id="user-label" class="badge">user</div>
+        <div id="computer-label" class="badge2">comp</div>
+        <span id="user-score">0</span>:<span id="computer-score">0</span>
+    </div>
+
+    <div class="result">
+        <p>Rock, Paper or Scissors? </p>
+    </div>
+    <div class="choices">
+        <div class="choice" id="r">
+            <img src="https://img.icons8.com/ios-filled/100/26e07f/rock.png"/>
+        </div>
+        <div class="choice" id="p">
+            <img src="https://img.icons8.com/ios-filled/100/26e07f/paper.png"/>
+        </div>
+        <div class="choice" id="s">
+            <img src="https://img.icons8.com/ios-filled/100/26e07f/cut.png"/>
+        </div>
+    </div>
+
+    <p id="action-message">Make your move</p>
+    <button class="reset" onclick="restart()">Reset</button>
+    </main>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
