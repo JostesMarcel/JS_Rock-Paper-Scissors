@@ -7,7 +7,6 @@ const result = document.querySelector('.result > p')
 const rock = document.getElementById('r')
 const paper = document.getElementById('p')
 const scissors = document.getElementById('s')
-
 let amoutOfTries = undefined
 let removeRound = document.getElementById('removeRound')
 let headQuest = document.getElementById('headQuest')
@@ -25,19 +24,16 @@ choseRound = (amount) => {
 printGuessTries = (number) => {
     winOrLose.innerHTML = `${number} / ${amoutOfTries}`
 }
-
 function getComputerChoice() {
     const choices = ['r', 'p', 's']
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber]
 }
-
 function convertWords(letter) {
     if (letter === 'r') return 'Rock'
     if (letter === 'p') return 'Paper'
     if (letter == 's') return 'Scissors'
 }
-
 function win(userChoise, computerChoice){
     roundCount++
     printGuessTries(roundCount)
@@ -48,6 +44,10 @@ function win(userChoise, computerChoice){
     let userColor = 'Your '.fontsize(4).fontcolor('green')
     let compColor = 'Comp '.fontsize(4).fontcolor('blue')
     result.innerHTML = `${userColor}${convertWords(userChoise)} beats ${compColor}${convertWords(computerChoice)}. You win 🏆`
+    document.getElementById(userChoise).classList.add('green-glow')
+    setTimeout(function() {
+        document.getElementById(userChoise).classList.remove('green-glow')
+    },500)
     console.log(userScore);
     console.log('WIN');
 }
@@ -59,6 +59,10 @@ function lose(userChoise, computerChoice){
     let userColor = 'Your '.fontsize(4).fontcolor('green')
     let compColor = 'Comp '.fontsize(4).fontcolor('blue')
     result.innerHTML = `${userColor}${convertWords(userChoise)} loses to ${compColor}${convertWords(computerChoice)}. You lose 🤕`
+    document.getElementById(userChoise).classList.add('red-glow')
+    setTimeout(function() {
+        document.getElementById(userChoise).classList.remove('red-glow')
+    },500)
     console.log('LOSE');
 }
 function draw(userChoise, computerChoice){
@@ -67,9 +71,12 @@ function draw(userChoise, computerChoice){
     let userColor = 'Your '.fontsize(4).fontcolor('green')
     let compColor = 'Comp '.fontsize(4).fontcolor('blue')
     result.innerHTML = `${userColor}${convertWords(userChoise)} equals ${compColor}${convertWords(computerChoice)}. Its a Draw 🤝`
+    document.getElementById(userChoise).classList.add('gray-glow')
+    setTimeout(function() {
+        document.getElementById(userChoise).classList.remove('gray-glow')
+    },500)
     console.log('DRAW');
 }
-
 function game(userChoise) {
     const computerChoice = getComputerChoice()
     switch (userChoise + computerChoice) {
@@ -95,7 +102,6 @@ function game(userChoise) {
     console.log('CPU choise: ' + computerChoice);
     console.log('MY choise: ' + userChoise);
 }
-
 function main() {
     rock.addEventListener('click', function() {
         console.log('click: rock');
@@ -111,9 +117,7 @@ function main() {
     })
 }
 main()
-
 let winOrLose = document.getElementById('winOrLose')
-
 function wOrL(){
     if (computerScore >= amoutOfTries) {
         winOrLose.innerHTML = `<h2>Game Over ☠️</h2>`
@@ -121,7 +125,6 @@ function wOrL(){
         winOrLose.innerHTML = `<h2>Victory 🥇</h2>`
     }
 }
-
 function restart() {
     window.location.reload();
 }
